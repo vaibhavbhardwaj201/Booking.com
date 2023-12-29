@@ -50,7 +50,7 @@ router.post("/register", [
             maxAge: 24 * 60 * 60 * 1000, // 1 day
         });
 
-        return res.sendStatus(200);
+        return res.status(200).json({message: "User created successfully"});
 
     } catch (error) {
         console.log(error);
