@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
 
-type RegisterFormDataType = {
+export type RegisterFormDataType = {
     firstName: string;
     lastName: string;
     email: string;
