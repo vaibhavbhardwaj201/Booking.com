@@ -10,7 +10,7 @@ router.post("/register", [
     check("firstName", "First name is required").isString(),
     check("lastName", "Last name is required").isString(),
     check("email", "Email is required").isEmail(),
-    check("password", "Password is required").isLength({ min: 6 }),
+    check("password", "Password with 6 or more characters required").isLength({ min: 6 }),
 ], async (req: Request, res: Response) => {
     // Check if there are any errors in the request through express-validator
     const errors = validationResult(req);

@@ -4,6 +4,7 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 
 import userRoutes from './routes/users';
+import authRoutes from './routes/auth';
 
 
 // Connect to MongoDB
@@ -15,7 +16,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+// Routes below
+
+// To register a user
 app.use("/api/users", userRoutes);
+// To login a user
+app.use("/api/auth", authRoutes)
 
 
 // Start the Express server
