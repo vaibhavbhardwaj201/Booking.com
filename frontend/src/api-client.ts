@@ -18,3 +18,17 @@ export const register = async (formData : RegisterFormDataType) => {
         throw new Error(data.message);
     }
 };
+
+// validateToken() is used to check if the user is logged in or not.
+export const validateToken = async () => {
+    const response = await fetch(`${APP_BASE_URL}/api/auth/validate-token`, {
+        credentials: 'include',
+    });
+
+    if (!response.ok) {
+        throw new Error("Token invalid!");
+    }
+
+    // If the response is ok, return the response as JSON.
+    return response.json();
+};
