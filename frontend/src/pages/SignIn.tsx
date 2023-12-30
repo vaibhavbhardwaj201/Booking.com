@@ -61,7 +61,7 @@ const SignIn = () => {
             </label>
             <span className="flex justify-between">
                 <span>
-                    Don't have an account? <Link to="/sign-up" className="text-blue-600 underline hover:no-underline">Register</Link>
+                    Don't have an account? <Link to="/sign-up" className="text-blue-600 underline hover:no-underline">Sign Up</Link>
                 </span>
                 <button
                     type="submit"
