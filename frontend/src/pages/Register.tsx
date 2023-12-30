@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form"
 import { useMutation, useQueryClient } from "react-query";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { useAppContext } from "../contexts/AppContext";
 import * as apiClient from "../api-client"
@@ -96,7 +96,10 @@ const Register = () => {
                     })} />
                 {errors.confirmPassword && <span className="text-red-500 text-sm">{errors.confirmPassword.message}</span>}
             </label>
-            <span>
+            <span className="flex justify-between">
+                <span>
+                    Already have an account? <Link to="/sign-in" className="text-blue-600 underline hover:no-underline">Sign In</Link>
+                </span>
                 <button
                     type="submit"
                     className="bg-gray-800 text-white py-2 px-4 rounded hover:bg-gray-700"
