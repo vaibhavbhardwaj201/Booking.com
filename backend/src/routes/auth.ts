@@ -64,9 +64,20 @@ router.post("/login", [
     }
 });
 
+// Route to validate token in cookie to see if we have active session
 router.get("/validate-token", verifyToken, (req: Request, res: Response) => {
     // If token is valid, return status 200
     res.status(200).send({userId: req.userId});
-})
+});
+
+
+// Route to logout user
+router.post("/logout", (req: Request, res: Response) => {
+    res.cookie("auth_token", "", {
+        expires: new Date(0),
+    });
+    res.status(200).send();
+});
+
 
 export default router;

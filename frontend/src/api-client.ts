@@ -44,6 +44,19 @@ export const login = async (formData : SignInFormDataType) => {
 };
 
 
+// logout() is used to logout a user.
+export const logout = async () => {
+    const response = await fetch(`${APP_BASE_URL}/api/auth/logout`, {
+        method: 'POST',
+        credentials: 'include',
+    });
+
+    if (!response.ok) {
+        throw new Error("Something went wrong!");
+    }
+};
+
+
 
 // validateToken() is used to check if the user is logged in or not.
 export const validateToken = async () => {
