@@ -1,7 +1,9 @@
 import { RegisterFormDataType } from "./pages/Register";
+import { SignInFormDataType } from "./pages/SignIn";
 
 const APP_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
 
+// register() is used to register a new user.
 export const register = async (formData : RegisterFormDataType) => {
     const response = await fetch(`${APP_BASE_URL}/api/users/register`, {
         method: 'POST',
@@ -17,7 +19,31 @@ export const register = async (formData : RegisterFormDataType) => {
     if (!response.ok) {
         throw new Error(data.message);
     }
+
+    return data;
 };
+
+// login() is used to login a user.
+export const login = async (formData : SignInFormDataType) => {
+    const response = await fetch(`${APP_BASE_URL}/api/auth/login`, {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error(data.message);
+    }
+
+    return data;
+};
+
+
 
 // validateToken() is used to check if the user is logged in or not.
 export const validateToken = async () => {
