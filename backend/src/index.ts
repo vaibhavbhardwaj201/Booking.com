@@ -4,10 +4,11 @@ import 'dotenv/config';
 import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import path from 'path';
+import { v2 as cloudinary } from 'cloudinary';
 
 import userRoutes from './routes/users';
 import authRoutes from './routes/auth';
-import { v2 as cloudinary } from 'cloudinary';
+import myHotelsRoutes from './routes/my-hotels';
 
 
 // Connect to Cloudinary
@@ -41,6 +42,8 @@ app.use(express.static(path.join(__dirname, "../../frontend/dist")));
 app.use("/api/users", userRoutes);
 // To login a user
 app.use("/api/auth", authRoutes)
+// To add a hotel
+app.use("/api/my-hotels", myHotelsRoutes);
 
 
 // Start the Express server
