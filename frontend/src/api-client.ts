@@ -1,7 +1,7 @@
 import { RegisterFormDataType } from "./pages/Register";
 import { SignInFormDataType } from "./pages/SignIn";
 
-const APP_BASE_URL = import.meta.env.VITE_APP_BASE_URL;
+const APP_BASE_URL = import.meta.env.VITE_APP_BASE_URL || "";
 
 // register() is used to register a new user.
 export const register = async (formData : RegisterFormDataType) => {
