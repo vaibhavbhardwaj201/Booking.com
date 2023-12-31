@@ -3,7 +3,6 @@ import multer from 'multer';
 import cloudinary from 'cloudinary';
 import Hotel, { HotelType } from '../models/hotel';
 import verifyToken from '../middleware/auth';
-import exp from 'constants';
 import { check } from 'express-validator';
 
 const router = express.Router();
