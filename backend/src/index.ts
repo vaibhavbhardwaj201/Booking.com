@@ -7,7 +7,15 @@ import path from 'path';
 
 import userRoutes from './routes/users';
 import authRoutes from './routes/auth';
+import { v2 as cloudinary } from 'cloudinary';
 
+
+// Connect to Cloudinary
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME as string,
+    api_key: process.env.CLOUDINARY_API_KEY as string,
+    api_secret: process.env.CLOUDINARY_API_SECRET as string,
+});
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_CONNECTION_STRING as string);
