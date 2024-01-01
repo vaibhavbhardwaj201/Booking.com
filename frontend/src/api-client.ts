@@ -1,5 +1,6 @@
 import { RegisterFormDataType } from "./pages/Register";
 import { SignInFormDataType } from "./pages/SignIn";
+import { HotelType } from "../../backend/src/models/hotel";
 
 const APP_BASE_URL = import.meta.env.VITE_APP_BASE_URL || "";
 
@@ -84,6 +85,21 @@ export const addMyHotel = async (hotelFormData: FormData) => {
 
     if (!response.ok) {
         throw new Error("Failed to add hotel!");
+    }
+
+    return data;
+};
+
+// fetchMyHotels() is used to fetch all the hotels added by the logged in user.
+export const fetchMyHotels = async (): Promise<HotelType> => {
+    const response = await fetch(`${APP_BASE_URL}/api/my-hotels`, {
+        credentials: 'include',
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error("Failed to fetch hotels!");
     }
 
     return data;
