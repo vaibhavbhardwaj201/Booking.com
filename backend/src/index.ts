@@ -45,6 +45,10 @@ app.use("/api/auth", authRoutes)
 // To add a hotel
 app.use("/api/my-hotels", myHotelsRoutes);
 
+app.get("*", (req: Request, res: Response) => {
+    res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"));
+});
+
 
 // Start the Express server
 app.listen(4000, () => {
