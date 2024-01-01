@@ -45,12 +45,11 @@ const MyHotels = () => {
                                     </div>
                                     <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
                                         <BiHotel />
-                                        {hotel.adultCount} adults,
-                                        {hotel.childCount} children
+                                        {hotel.adultCount} adults, {hotel.childCount} children
                                     </div>
                                     <div className="border border-slate-300 rounded-sm p-3 flex items-center gap-2">
                                         <BiStar />
-                                        {hotel.starRating} ratings
+                                        {hotel.starRating} Star Ratings
                                     </div>
                                 </div>
                                 <span className="flex justify-end">

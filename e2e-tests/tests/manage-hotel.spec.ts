@@ -66,3 +66,24 @@ test('should allow user to add a new hotel', async ({ page }) => {
     await expect(page.getByText('Hotel added successfully!')).toBeVisible();
 
 });
+
+
+// Test to check if front end can get the hotel list from backend
+test('should allow user to get hotel list', async ({ page }) => {
+    await page.goto(`${UI_URL}/my-hotels`);
+
+    // expect the hotel list to be visible
+    await expect(page.getByRole('link', { name: "Add Hotel" })).toBeVisible();
+
+    await expect(page.getByText('Taj Hotel')).toBeVisible();
+    await expect(page.getByText("This is vilnisu")).toBeVisible();
+    await expect(page.getByText('Vilnius, LITHUANIA')).toBeVisible();
+    await expect(page.getByText('Ski Resort')).toBeVisible();
+    await expect(page.getByText('€472 per night')).toBeVisible();
+    await expect(page.getByText('1 adults, 0 children')).toBeVisible();
+    await expect(page.getByText('3 Star Ratings')).toBeVisible();
+
+    await expect(page.getByRole('link', { name: "View Details" })).toBeVisible();
+
+
+});
