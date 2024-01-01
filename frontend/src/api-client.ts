@@ -91,16 +91,16 @@ export const addMyHotel = async (hotelFormData: FormData) => {
 };
 
 // fetchMyHotels() is used to fetch all the hotels added by the logged in user.
-export const fetchMyHotels = async (): Promise<HotelType> => {
+export const fetchMyHotels = async (): Promise<HotelType[]> => {
     const response = await fetch(`${APP_BASE_URL}/api/my-hotels`, {
         credentials: 'include',
     });
 
-    const data = await response.json();
+    // const data = await response.json();
 
     if (!response.ok) {
         throw new Error("Failed to fetch hotels!");
     }
 
-    return data;
+    return await response.json();
 };

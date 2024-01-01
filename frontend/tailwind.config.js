@@ -7,7 +7,7 @@ export default {
       padding: {
         DEFAULT: '1rem',
         sm: '1rem',
-        md: '10rem',
+        md: '7rem',
       },
     },
   },
