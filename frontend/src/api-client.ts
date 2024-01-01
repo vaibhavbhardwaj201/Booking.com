@@ -1,3 +1,4 @@
+import { HotelFormData } from "./forms/manageHotelForm/ManageHotelForm";
 import { RegisterFormDataType } from "./pages/Register";
 import { SignInFormDataType } from "./pages/SignIn";
 
@@ -22,6 +23,7 @@ export const register = async (formData : RegisterFormDataType) => {
 
     return data;
 };
+
 
 // login() is used to login a user.
 export const login = async (formData : SignInFormDataType) => {
@@ -57,7 +59,6 @@ export const logout = async () => {
 };
 
 
-
 // validateToken() is used to check if the user is logged in or not.
 export const validateToken = async () => {
     const response = await fetch(`${APP_BASE_URL}/api/auth/validate-token`, {
@@ -70,4 +71,21 @@ export const validateToken = async () => {
 
     // If the response is ok, return the response as JSON.
     return response.json();
+};
+
+// addMyHotel() is used to add a new hotel calling api endpoint /api/my-hotels
+export const addMyHotel = async (hotelFormData: FormData) => {
+    const response = await fetch(`${APP_BASE_URL}/api/my-hotels`, {
+        method: 'POST',
+        credentials: 'include',
+        body: hotelFormData
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+        throw new Error("Failed to add hotel!");
+    }
+
+    return data;
 };

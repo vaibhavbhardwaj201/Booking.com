@@ -16,11 +16,8 @@ export type RegisterFormDataType = {
 const Register = () => {
 
     const queryClient = useQueryClient();
-
     const navigate = useNavigate();
-
     const { showToast } = useAppContext();
-
     const { register, watch, handleSubmit, formState: { errors } } = useForm<RegisterFormDataType>();
 
     const mutation = useMutation(apiClient.register, {
