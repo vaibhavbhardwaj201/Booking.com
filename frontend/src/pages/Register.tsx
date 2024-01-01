@@ -16,6 +16,7 @@ export type RegisterFormDataType = {
 const Register = () => {
 
     const queryClient = useQueryClient();
+
     const navigate = useNavigate();
 
     const { showToast } = useAppContext();
